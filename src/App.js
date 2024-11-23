@@ -13,7 +13,7 @@ const App = () => {
     setSuggestion("");
 
     try {
-      const response = await fetch("https://tvlha.github.io/First-Project-Chatbot", {
+      const response = await fetch("http://52.87.156.149:8080/api/suggestion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),

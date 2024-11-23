@@ -10,11 +10,10 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return """
-    <h1>Welcome to AI Coding Advisor Backend</h1>
-    <p>This is the backend API for the AI Coding Advisor project. To use the API, make a POST request to <code>/api/suggestion</code>.</p>
-    """
+def index():
+    return "Welcome to the AI Coding Advisor!"
+
+application = app
 
 @app.route("/api/suggestion", methods=["POST"])
 def get_suggestion():
@@ -41,4 +40,4 @@ def get_suggestion():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=80)
